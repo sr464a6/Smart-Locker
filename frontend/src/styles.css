@@ -1,0 +1,136 @@
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.app-shell { min-height: 100vh; }
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+.page-sempit { max-width: 560px; }
+
+h1 { font-size: 22px; margin: 4px 0 6px; }
+h3 { margin: 0 0 6px; }
+h4 { margin: 12px 0 6px; }
+.kecil { color: #94a3b8; font-size: 13px; }
+.error { color: #f87171; font-size: 13px; }
+
+/* ---- Grid Loker ---- */
+.grid-loker {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* default: mobile, 2 kolom */
+  gap: 12px;
+  margin-top: 16px;
+}
+.locker-card {
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 16px 10px;
+  cursor: pointer;
+  color: #e2e8f0;
+  text-align: center;
+}
+.locker-nomor { font-weight: 700; font-size: 16px; }
+.locker-status { font-size: 12px; margin-top: 4px; }
+
+/* ---- Form / panel umum ---- */
+.form-card, .panel {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+}
+.form-card label { font-size: 13px; margin: 10px 0 4px; color: #cbd5e1; }
+.form-card input, .keypad-input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 15px;
+}
+.keypad-input { text-align: center; letter-spacing: 6px; font-size: 20px; margin-bottom: 10px; }
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn-primary { background: #2563eb; border-color: #2563eb; color: #fff; margin-top: 14px; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-link { background: none; border: none; color: #60a5fa; padding: 0; margin-bottom: 10px; text-align: left; }
+.aksi-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+/* ---- PIN boxes ---- */
+.pin-row { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.pin-box {
+  background: #1e293b;
+  border: 1px dashed #475569;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.pin-box-muted { opacity: 0.5; }
+.pin-box strong { display: block; font-size: 26px; letter-spacing: 5px; margin-top: 4px; }
+.status-buka { color: #f97316; font-weight: 600; }
+
+/* ---- Log ---- */
+.log { list-style: none; padding: 0; margin: 0; max-height: 160px; overflow-y: auto; }
+.log li { padding: 5px 0; border-bottom: 1px solid #334155; font-size: 13px; }
+
+/* =======================================================
+   MEDIA QUERIES — responsif untuk semua device
+   ======================================================= */
+
+/* Tablet ke atas (>= 600px) */
+@media (min-width: 600px) {
+  .page { padding: 28px 24px 60px; }
+  h1 { font-size: 26px; }
+  .grid-loker { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .pin-row { flex-direction: row; }
+  .pin-box { flex: 1; }
+}
+
+/* Desktop kecil / laptop (>= 900px) */
+@media (min-width: 900px) {
+  .grid-loker { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .form-card, .panel { padding: 22px; }
+}
+
+/* Desktop besar (>= 1200px) */
+@media (min-width: 1200px) {
+  .grid-loker { grid-template-columns: repeat(6, 1fr); }
+  .page { padding-top: 40px; }
+}
+
+/* Handphone kecil (<= 380px) */
+@media (max-width: 380px) {
+  .grid-loker { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .locker-card { padding: 12px 6px; }
+  .pin-box strong { font-size: 22px; letter-spacing: 3px; }
+}
+
+/* Mode lanskap HP pendek */
+@media (max-height: 480px) and (orientation: landscape) {
+  .page { padding-top: 12px; padding-bottom: 24px; }
+}
+
+/* pin-row 3 kolom di layar lebar */
+@media (min-width: 900px) {
+  .pin-row { flex-wrap: wrap; }
+  .pin-row .pin-box { flex: 1 1 30%; }
+}
